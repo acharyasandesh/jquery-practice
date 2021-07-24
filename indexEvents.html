@@ -1,0 +1,202 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-size: 17px;
+            font-family: arial;
+            background: silver;
+            line-height: 1.5em;
+        }
+        header{
+            background: #333;
+            color: #fff;
+            padding:20px;
+            text-align: center;
+            border-bottom: 4px #000 sold;
+            margin-bottom: 10px;
+        }
+        #container{
+            width:90%;
+            margin:auto;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <header>
+        <h1>Jquery Events Practice</h1>
+    </header>
+    <div id="container">
+        <h3>Mouse Events</h3>
+        <button id="btn1">Button1</button>
+        <button id="btn2">Button2</button>
+        <p class="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aperiam nesciunt expedita recusandae! Autem tempora porro dicta nostrum cupiditate, perspiciatis eaque quisquam dolorum laborum, vitae harum minus itaque dignissimos fuga.</p>
+    </div>
+    <div id="output1"></div>
+    <hr>
+    <form id="form">
+        <label>Name</label><br>
+        <input type="text" name="name" id="name">
+        <br>
+        <label>Email</label><br>
+        <input type="email" name="email" id="email">
+        <br>
+        <label>Gender</label><br>
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        /* $('btn1').click(function(){
+            alert('Button Clicked!');
+        })
+        */
+        // We can also do this.But it does the same thing as above
+
+        // $('btn1').on('click', function(){
+        //     alert('Button Clicked!');
+        // })
+
+        /* Note: Incase if the script is pasted above the document in code, it will not work. to solve that we can do this
+        $(document).ready(function(){
+            //paste all the codes here;
+        })
+        */
+
+
+        //this will hide para1 contents when btn1 is clicked
+        // $('#btn1').on('click', function(){
+        //     $('.para1').hide();
+        // })
+
+        //this will show para1 contents again when btn2 is clicked
+        // $('btn2').on('click', function(){
+        //     $('p.para1').show();
+        // })
+
+        // this will hide para1 when clicked once and show contents again clicked twice and so on
+        // $('#btn1').on('click', function(){
+        //     $('p.para1').toggle();
+        // })
+
+        // this will toggle hide/show para1 on dbl click but no action on one click
+        // $('#btn1').dblclick(function(){
+        //     $('p.para1').toggle();
+        // })
+
+        // toggle on hover
+        // $('#btn1').hover(function(){
+        //     $('p.para1').toggle();
+        // })
+        // $('.para1').hide();
+
+
+        //********But if we use .on(), this is not going to work
+        // toggle on hover
+        // $('#btn1').on('hover',function(){
+        //     $('p.para1').toggle();
+        // })
+
+        
+        // we have to use 'mouseenter' or 'mouseleave'
+        // $('#btn1').on('mouseenter',function(){
+        //     $('p.para1').toggle();
+        // })
+
+        // little bit of movement of mouse inside the button element will trigger the toggle effect
+        // $('#btn1').on('mousemove',function(){
+        //     $('p.para1').toggle();
+        // })
+
+        // $('#btn1').on('mousedown',function(){
+        //     $('p.para1').toggle();
+        // })
+        // $('#btn1').on('mouseup',function(){
+        //     $('p.para1').toggle();
+        // })
+
+        // $('#btn1').click(function(e){
+        //     console.log(e.currentTarget.id);
+        //     console.log(e.currentTarget.innerHTML);
+        //     console.log(e.currentTarget.outerHTML);
+        //     console.log(e.currentTarget.className);
+        // })
+
+        // this will give Y coordinate and X coordinate in the browser
+        // $('#btn1').on('mousemove',function(e){
+        //     console.log(e.clientY + e.clientX);
+        // })
+
+        // // we can utilize that by doing this. Note: there is no '' in document
+        // $(document).on('mousemove',function(e){
+        //     console.log(e.clientY + e.clientX);
+        // })
+        // //this way we can find where the user is pointing his mouse in the whole page
+        // $(document).on('mousemove',function(e){
+        //     console.log(e.currentTarget.id + e.currentTarget.className);
+        // })
+
+        //this way we can find where the user is pointing his mouse in the whole page
+        // we may even output the result in the browser
+        // $(document).on('mousemove',function(e){
+        //     $('#output1').html('Cords X: ' + e.clientX + ' Y: ' + e.clientY);
+        // })
+
+        // to act on form design when we click there
+        // $('input').focus(function(){
+        //     $('#name').css('background', 'pink');
+        // })
+
+        // but it doesn't work properly when we click on email, so in this case we can use $(this)
+        // to act on form design when we click there
+        // $('input').focus(function(){
+        //     $(this).css('background', 'pink');
+        // })
+        
+        // we can change it back to previous color or any different color when click outside using .blur method
+        // $('input').blur(function(){
+        //     $(this).css('background', 'white');
+        // })
+
+        // we can also use keyup and keydown
+        // $('input').keyup(function(){
+        //     console.log('keyup');
+        // })
+
+        // we can track what user is typing using this trick
+        // $('input').keyup(function(e){
+        //     console.log(e.target.value);
+        // })
+
+
+        // we can use select#gender or #gender, th difference is select#gender is more specific and we might have to use it when we have multiple elements with the id #gender
+        //.change will occur when the option is choosed/changed
+        // $('select#gender').change(function(){
+        //     console.log('changed');
+        // });
+
+        // $('select#gender').change(function(e){
+        //     console.log('changed');
+        //     console.log(e.target.value);
+        // });
+
+        // // In JQUERY we get value using .val() not .value   following fuction will run when submit button is clicked from form
+        // $('#form').submit(function(e){
+        //     e.preventDefault();
+        //     var name = $('input#name').val();
+        //     console.log(name);
+        //     console.log('Submitted');
+        // })
+    </script>
+</body>
+</html>
