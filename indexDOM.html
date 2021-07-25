@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-size: 17px;
+            font-family: arial;
+            background: silver;
+            line-height: 1.5em;
+        }
+        header{
+            background: #333;
+            color: #fff;
+            padding:20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+        #container{
+            width:90%;
+            margin:auto;
+            padding:10px;
+        }
+        .myClass{
+            color:blue;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JQUERY DOM Manipulation</h1>
+    </header>
+    <div id="container">
+        <button id="btn1">Button 1</button>
+        <p class="para1">Para 1 Lorem ipsum dolor sit amet.</p>
+        <p class="para2">Para 2 Lorem ipsum dolor sit amet.</p>
+        <div id="output1"></div>
+
+        <input type="text" placeholder="Add new item" id="newItem">
+        <ul id="list">
+            <li>List Item1</li>
+            <li>List Item2</li>
+            <li>List Item3</li>
+            <li>List Item4</li>
+            <li>List Item5</li>
+        </ul>
+
+    </div>
+
+    <a href="http://google.com">Google</a>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // //$('.para1').css('color', 'red');
+            // $('.para1').css({color:'brown', background:'#fff'});
+            $('.para2').addClass('myClass');
+
+            $('#btn1').click(function(){
+                $('.para2').toggleClass('myClass');
+            });
+
+            // $('#output1').text('Hello World');
+            // $('#output1').html('<h3>Hello World</h3>');
+            // // using .text we can not use html tags but we can add html tags in using .html
+
+            // console.log($('#output1').text());
+
+            //$('ul').append('<li>Append List Items</li>'); // adds to the lase
+            //$('ul').prepend('<li>Prepend List Items</li>'); // adds to the first
+
+            //para1 is inserted inside para2 OR we can also say when there is .appendTo('XYZ'), XYZ will come at first
+            //$('.para1').appendTo('.para2'); 
+
+            //para 1 is inserted after para2 OR we can also say when there is .prependTo('XYZ'), XYZ will come last
+            //$('.para2').prependTo('.para1');
+
+            //.before will add something above the selected element while .after will add something below the selected element. The difference with these to append/prepend is that append/prepend add something making it a child element while after before will add something making it a sibling element
+
+            // $('ul').before('<h4>Hello</h4>');
+            // $('ul').after('<h4>Hello</h4>');
+
+            // $('ul').empty(); // this will remove everything that is inside the ul element
+            // $('ul').detach()  // the whole ul element will be removed
+
+            $('a').attr('target', '_blank'); // we are passing target attribute to make that link inside a open in new tab. 
+            /*
+                _blank - this will open in new tab
+                _self - this will open in it's same frame 
+                _parent - this will open in the parent frame/size
+            */
+
+
+        //     //alert($('a').attr('href')); - this can be used to output the address link stored inside a or href
+        //    $('[href="http://google.com"]').click(function(){
+        //         alert($('a').attr('href') );
+        //      });
+
+        //alert($('a').attr('href'));
+        //$('a').removeAttr('target');
+
+        // $('p').wrap('<h1>'); // this will wrap different p inside inside <h1> element individually. eg: <h1>p2</h1> <h1>p2</h1>
+
+        // $('p').wrapAll('<h1>'); // this will wrap all the p inside one <h1>. eg: <h1>p1 p2</h1>
+
+        
+            $('#newItem').keyup(function(e){
+                var key = e.which;
+                if(e.which==13){    // 13 means the enter key
+                    e.preventDefault();
+                    $('ul').append('<li>' + $('#newItem').val() );
+                    $('#newItem').val("");
+                }
+            });
+
+            var myArr = ['Jack', 'Sunny', 'Bob'];
+
+            $.each(myArr, function(i, val){
+                console.log(val);
+            });
+
+            myArr[1] = 'Don';
+            console.log(myArr);
+
+            var newArray = $('ul#list li').toArray();
+            console.log(newArray);
+
+
+    });
+    </script>
+</body>
+</html>
