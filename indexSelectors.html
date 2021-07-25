@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY selectors</title>
+
+</head>
+<body>
+    <header>
+        <h1 id="bodyTitle" class="bodyTitle">Lorem, ipsum</h1>
+    </header>
+    <div id="div1" class="div1">
+        <h2 id="h2div1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident maiores ducimus quibusdam enim molestiae, tenetur, tempora corrupti consequatur exercitationem porro eius officia unde quasi cupiditate assumenda ex ipsam beatae!</h2>
+        <h3>Lorem, ipsum dolor.</h2>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam alias modi id voluptatum ea aliquam magni fugiat, molestiae ipsum sapiente blanditiis nemo dolor nostrum eum? Esse at enim culpa vero?<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, unde?</span></p>
+    <div><h2 id="h2div2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2></div>
+
+    <ul id="list">
+        <li>List Item1</li>
+        <li>List Item1</li>
+        <li>List Item1</li>
+        <li>List Item1</li>
+        <li>List Item1</li>
+    </ul>
+
+    <a href="http://google.com">Google</a>
+    <a href="http://yahoo.com">Yahoo</a>
+    <input type="button" value="Button 1">
+    <input type="submit" value="Submit">
+    <input type="text" placeholder="Enter text here.." id="text">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // ***** Selectors
+        //$(*).hide(); // this hides everything in the site
+        // $('h1').hide();
+        //$('h1.bodyTitle').hide();
+        // $('div h2#h2div2').hide();
+        // $('#h2div2').css('background-color', 'green');
+        // $('p span').css('color', 'red');
+
+        //For first we can use li:first and li:last for last
+        //$('ul li:nth-child(2)').css('color', 'purple');
+        //$('ul li:even').css('background-color','#cccccc')
+        // we have to use : for input values
+        //$(':button').hide();
+        //$(':text').hide();
+        //$('a').css('color', 'red');
+        //$('[href]').css('color', 'red');
+        
+        //to target specific href we should do this
+        //$('[href="http://yahoo.com"]').css('color','green');
+    </script>
+</body>
+</html>
